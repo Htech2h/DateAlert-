@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+    <header>
+        <h1>Day of the week <br /> you were born</h1>
+        <div class="nip-container">
+    <div class="nip">
+      <div class="compass"></div>
+    </div>
+    <div class="text">DateAlert</div>
+  </div>
+    </header>  <div id="form">
+    <form onsubmit="return calculate()" method="post">
+    <h1>Fill Out</h1>
+    Year: <input type="number" name="num1" id="num1" class="field"/><br />
+    Month: <input type="number" name="num2" id="num2" class="field" /><br />
+    Day: <input type="number" name="num3" id="num3" class="field">
+    <input type="submit" value="Submit" class="submit" />
+    
+</form>  
+    </div> <br /><br /><br />
+
+    
+    <footer class="footer">
+  <div class="container">
+    <p>&copy; 2023 DateAlert. All rights reserved.</p>
+    
+  </div>
+</footer>
+    <script>
+        function calculate(){
+    
+   var year = parseInt(document.getElementById("num1").value);
+   var month = parseInt(document.getElementById("num2").value );
+   var day = parseInt( document.getElementById("num3").value);
+    
+   alert(getWeekDay(year, month-1, day)); 
+
+}
+function getWeekDay(year, month, day) {
+   var names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+   var d = new Date(year, month, day);
+    //complete the function
+   var day = d.getDay();
+   return names[day];
+}
+
+    </script>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:;
+}
+        header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28vh;
+  margin: 0;
+  background-color: #333;
+}
+
+.nip {
+  width: 60px;
+  height: 60px;
+  background-color: #333; /* dark color for the nipples */
+  border-radius: 50%;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.compass {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid green; /* White green for the compass border */
+  position: absolute;
+  animation: rotate-compass 2s linear infinite;
+  box-sizing: border-box;
+}
+
+.compass::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #fff transparent transparent transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate-compass {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#form{
+    height: 18em;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px 12px;
+}
+.field{
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 0;
+    text-align: center;
+}
+.submit{
+    display: block;
+    padding: 10px 10px;
+    width: 100%;
+    border-radius: 12px;
+    color: #ffffff;
+    background-color: #34003b;
+    border: 0;
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
+
+    </style>
+    </body>
+</html>
